@@ -1,14 +1,14 @@
 version: '3'
 services:
- docker-app:
-    image: calcard/webapp
-    ports:
-      - "8080:8080"
-    depends_on:
-      - docker-mysql
- docker-mysql:
-    image: mysql:10.6
-    environment:
-      - MYSQL_DB=calcard
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=1234
+docker-app:
+   image: calcardev/calcardev
+   ports:
+     - "8080:8080"
+   depends_on:
+     - docker-postgres
+docker-postgres:
+   image: postgres:9.5
+   environment:
+     - POSTGRES_DB=calcard
+     - POSTGRES_USER=postgres
+     - POSTGRES_PASSWORD=1234
