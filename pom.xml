@@ -16,6 +16,8 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+        <docker.version>1.4.2</docker.version>
+        <docker.repository>calcard</docker.repository>		
 	</properties>
 
 	<dependencies>
