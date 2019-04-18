@@ -9,6 +9,7 @@ Executando aplicação AngularJS e Spring Boot com Docker
 - Docker 2
 - AngularJS 1.x
 - Spring Boot 2.1.4
+- Postgres 9.5
 
 ## Preparando ambiente
 
@@ -20,9 +21,9 @@ $ docker build --build-arg JAR_FILE=target/*.jar -t calcard/calcardev .
 
 $ docker run -it -d --name=postgres-docker -p 5432:5432 -e POSTGRES_PASSWORD='1234' postgres
 
-$ sudo docker ps -a
+$ docker ps -a
 
-$ sudo docker-compose up docker-app
+$ docker-compose up docker-app
 ```
 
 ## Documentação Swagger
