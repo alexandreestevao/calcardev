@@ -13,6 +13,9 @@ Executando aplicação AngularJS e Spring Boot no Docker
 
 
 ```
+sudo docker ps -a
+sudo docker run -it -d --name=postgres-docker -p 5432:5432 -e POSTGRES_PASSWORD='1234' postgres
+sudo docker build --build-arg JAR_FILE=target/*.jar -t calcardev/calcardev .
 mvn clean package dockerfile:build 
 docker-compose up
 ```

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.calcardev.domain.Cliente;
 import br.com.calcardev.service.ClienteService;
+import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/api/cliente")
@@ -23,22 +24,26 @@ public class ClienteController {
 	private ClienteService clienteService;
 	
 	@PostMapping("")
+	@ApiOperation(value="Cria um novo Cliente e com ID altera os Dados")
 	public ResponseEntity<?> addCliente(@RequestBody Cliente cliente) {
 		Cliente newCliente = clienteService.saveCliente(cliente);
 		return new ResponseEntity<Cliente>(newCliente, HttpStatus.CREATED);
 	}
 	
+	@ApiOperation(value="Retorna todos os Clientes")
     @GetMapping("/all")
     public Iterable<Cliente> getAllClientes(){
         return clienteService.findAll();
     }
     
+	@ApiOperation(value="Retorna o Cliente")
     @GetMapping("/{id}")
     public ResponseEntity<?> getById(@PathVariable Long id){
         Cliente cliente = clienteService.findById(id);
         return new ResponseEntity<Cliente>(cliente, HttpStatus.OK);
     }
     
+	@ApiOperation(value="Remove o Cliente")
     @DeleteMapping("/{id}")
     @ResponseBody
     public ResponseEntity<String> deleteCliente(@PathVariable Long id) {
