@@ -41,9 +41,10 @@ myApp.controller('clienteController', ['$scope', '$http', function($scope, $http
       data: $scope.cliente      
 
     }).then(function successCallback(response) {
+    	
       $scope.clientes.push(response.data);
       alert("Dados Enviados com Sucesso!")
-      
+      getClientes();
 
     }, function errorCallback(response) {
       alert("Erro na tentativa de criar um cliente. Favor tentar novamente!");
@@ -94,24 +95,20 @@ myApp.controller('clienteController', ['$scope', '$http', function($scope, $http
       $scope.clientes.splice(index, 1);
 
     }, function errorCallback(response) {
-        getClientes();    
+      getClientes();    
       alert("Cliente excluído com Sucesso!");
 
     });
-    
-
 
   };
 
   //Set $scope on Edit button click
   $scope.alterarCliente = function(cliente) {
-
     $scope.cliente = cliente;
     $scope.submit = false;
     $scope.update = true;
     $scope.cancel = true;
     $scope.clienteid = false;
-
   };
 
 
